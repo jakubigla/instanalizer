@@ -1,0 +1,25 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "environment": [
+        {
+          "name": "SESSION_TABLE",
+          "value": "sessions"
+        }
+      ],
+      "essential": true,
+      "image": "instanalizer/api-gateway",
+      "name": "api-gateway",
+      "memory": 128
+    },
+    {
+      "essential": true,
+      "image": "instanalizer/authentication",
+      "name": "authentication",
+      "memory": 128
+    }
+  ],
+  "family": "",
+  "volumes": []
+}

@@ -1,0 +1,16 @@
+version: "3.1"
+
+services:
+  ui:
+    image: instanalizer/ui
+    build: ui
+    environment:
+      SESSION_TABLE: sessions
+
+  api-gateway:
+    image: instanalizer/api-gateway
+    build: services/api-gateway
+
+  authentication:
+    image: instanalizer/authentication
+    build: services/authentication

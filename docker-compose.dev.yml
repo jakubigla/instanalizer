@@ -1,0 +1,42 @@
+version: "3.1"
+
+volumes:
+  secrets:
+
+services:
+  ui:
+    image: php:${PHP_VERSION}
+    command: php -S 0.0.0.0:80 -t /app/public
+    ports:
+      - 8080:80
+    volumes:
+      - ./ui:/app
+  authentication:
+    image: php:${PHP_VERSION}
+    command: php -S 0.0.0.0:80 -t /app/public
+    ports:
+      - 8082:80
+    volumes:
+      - ./authentication:/app
+  api-gateway:
+    image: webdevops/php-nginx-dev:${PHP_VERSION}
+    volumes:
+      - ./services/api-gateway:/app
+    ports:
+      - 8081:80
+    expose:
+      - 9001
+    environment:
+      PHP_DEBUGGER: xdebug
+      XDEBUG_REMOTE_HOST: ${LOCAL_IP}
+      XDEBUG_REMOTE_PORT: 9001
+      XDEBUG_REMOTE_AUTOSTART: "on"
+      XDEBUG_REMOTE_CONNECT_BACK: "off"
+      XDEBUG_PROFILER_ENABLE: 0
+      XDEBUG_PROFILER_OUTPUT_DIR: "/app"
+      XDEBUG_IDEKEY: "PHPSTORM"
+
+  secret-simulator:
+      image: mikesir87/secrets-simulator
+      volumes:
+        - secrets:/run/secrets:rw

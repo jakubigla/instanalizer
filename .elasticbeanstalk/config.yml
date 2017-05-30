@@ -1,0 +1,19 @@
+branch-defaults:
+  master:
+    environment: developers
+    group_suffix: null
+global:
+  application_name: instanalizer
+  branch: null
+  default_ec2_keyname: eb
+  default_platform: Multi-container Docker 1.12.6 (Generic)
+  default_region: eu-west-2
+  environment:
+    test: test
+  instance_profile: null
+  platform_name: null
+  platform_version: null
+  profile: null
+  repository: null
+  sc: git
+  workspace_type: Application

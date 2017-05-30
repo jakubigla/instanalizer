@@ -1,0 +1,5 @@
+COMPOSE_FILE=docker-compose.yml:docker-compose.dev.yml
+REPOSITORY=
+PHP_VERSION=7.1
+
+LOCAL_IP=192.168.1.67

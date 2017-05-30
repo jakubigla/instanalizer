@@ -1,0 +1,13 @@
+version: "3.1"
+
+services:
+  ui:
+    image: ${REPOSITORY}instanalizer/ui
+    environment:
+      SESSION_TABLE: sessions
+
+  api-gateway:
+    image: ${REPOSITORY}instanalizer/api-gateway
+
+  authentication:
+    image: ${REPOSITORY}instanalizer/authentication
