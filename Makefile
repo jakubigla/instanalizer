@@ -9,6 +9,7 @@ build-ui:
 
 build:
 	@make build-ui
+	@docker-compose build
 
 deploy-ui:
 	@scripts/deploy/ui.sh

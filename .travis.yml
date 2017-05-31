@@ -1,0 +1,15 @@
+sudo: required
+
+env:
+  global:
+    - ENV_FILE="ci"
+
+services:
+  - docker
+
+jobs:
+  include:
+    - stage: build
+      script: ./build/ui.sh
+    -
+      script: cp "env/$ENV_FILE" .env && docker-compose build
