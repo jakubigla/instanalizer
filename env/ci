@@ -1,3 +1,3 @@
-COMPOSE_FILE=docker-compose.yml:docker-compose.dev.yml
+COMPOSE_FILE=docker-compose.yml
 REPOSITORY=
 PHP_VERSION=7.1
