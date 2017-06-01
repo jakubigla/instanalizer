@@ -2,4 +2,4 @@
 
 cd ui
 npm install
-npm run build --report
+npm run build --reports
