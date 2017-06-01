@@ -1,4 +1,5 @@
 # Instanalizer
+[![Build Status](https://travis-ci.org/jakubigla/instanalizer.svg?branch=master)](https://travis-ci.org/jakubigla/instanalizer)
 
 
 This application will allow you to authenticate against your Instagram account and then analise all your uploaded photos using Amazon Rekognition.
