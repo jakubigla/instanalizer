@@ -11,6 +11,6 @@ jobs:
   include:
     - stage: build
       language: node_js
-      script: ./build/ui.sh
+      script: ./scripts/build/ui.sh
     -
       script: cp "env/$ENV_FILE" .env && docker-compose build
