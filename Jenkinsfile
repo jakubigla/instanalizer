@@ -11,11 +11,6 @@ pipeline {
             steps {
                 parallel (
                     "ui" : {
-                        agent {
-                            docker {
-                                image 'node'
-                            }
-                        }
                         steps {
                             sh 'npm install'
                         }
