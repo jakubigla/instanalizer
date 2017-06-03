@@ -17,7 +17,7 @@ docker:
   services:
     - docker:dind
   before_script:
-    - cp env/ci .env
+    - ./scripts/setup/env.sh ci
     - apk add --update py-pip
     - pip install docker-compose
     - docker -v

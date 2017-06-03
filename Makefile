@@ -1,5 +1,16 @@
+.DEFAULT_GOAL := build
+
+ENV_NAME ?= "dev"
+
 run:
 	@docker-compose up -d
+	@npm run dev
+
+setup:
+	@scripts/setup/env.sh $(ENV_NAME)
+	@scripts/setup/composer.sh
+	@scripts/setup/npm.sh
+	@scripts/setup/elasticbeanstalk.sh
 
 dockerrun:
 	@scripts/generate-dockerrun.sh
