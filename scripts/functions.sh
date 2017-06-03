@@ -6,14 +6,10 @@ function getCurrentEnvName {
 
 function getEBResourceOutput {
     OUTPUT_KEY="$1"
-    ENVIRONMENT_NAME=`getCurrentEnvName`
+    ENV_DEF=`getCurrentEnvName`
+    ENVIRONMENT_NAME=${2:-$ENV_DEF}
 
-    ENVIRONMENT_ID=`aws elasticbeanstalk describe-environments --environment-name "$ENVIRONMENT_NAME" \
-        | jq -r '.Environments[0].EnvironmentId'`
+    echo $ENVIRONMENT_NAME
+    echo $ENV_DEF
 
-    CLOUD_FORMATION_STACK_NAME="awseb-${ENVIRONMENT_ID}-stack"
-
-    aws cloudformation describe-stacks --stack-name "$CLOUD_FORMATION_STACK_NAME" \
-        | jq -r --arg OUTPUT_KEY "$OUTPUT_KEY" \
-            '.Stacks[0].Outputs[] | select(.OutputKey==$OUTPUT_KEY) | .OutputValue' 2> /dev/null
 }

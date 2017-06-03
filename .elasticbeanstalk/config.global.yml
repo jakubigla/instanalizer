@@ -1,11 +1,11 @@
 branch-defaults:
   master:
-    environment: null
-    group_suffix: null
+    environment: prod
 global:
-  application_name: twitter-media-downloader
-  default_ec2_keyname: null
-  default_platform: PHP 7.0
+  application_name: instanalizer
+  branch: master
+  default_ec2_keyname: eb
+  default_platform: Multi-container Docker 1.12.6 (Generic)
   default_region: eu-west-2
-  profile: eb-cli
-  sc: null
+  sc: git
+  workspace_type: Application

@@ -1,0 +1,29 @@
+stages:
+  - build
+
+npm:
+  image: node
+  stage: build
+  before_script:
+    - node -v
+  script:
+    - ./scripts/build/ui.sh
+  tags:
+    - docker
+
+docker:
+  image: docker
+  stage: build
+  services:
+    - docker:dind
+  before_script:
+    - cp env/ci .env
+    - apk add --update py-pip
+    - pip install docker-compose
+    - docker -v
+    - docker-compose -v
+  script:
+    - docker-compose build
+  tags:
+    - docker
+

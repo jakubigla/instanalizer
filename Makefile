@@ -7,9 +7,12 @@ dockerrun:
 build-ui:
 	@scripts/build/ui.sh
 
+build-docker:
+	@docker-compose build
+
 build:
 	@make build-ui
-	@docker-compose build
+	@make build-docker
 
 deploy-ui:
 	@scripts/deploy/ui.sh
