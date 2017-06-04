@@ -8,6 +8,12 @@
           "value": "sessions"
         }
       ],
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
       "essential": true,
       "image": "instanalizer/api-gateway",
       "name": "api-gateway",

@@ -1,5 +1,6 @@
 stages:
   - build
+  - deploy
 
 npm:
   image: node
@@ -29,3 +30,13 @@ docker:
   tags:
     - docker
 
+deploy:
+  image: python
+  stage: deploy
+  before_script:
+    - pip install awsebcli
+    - eb --version
+  script:
+    - ./scripts/deploy/eb_app.sh instanalizer
+  tags:
+    - docker
