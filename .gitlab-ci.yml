@@ -17,13 +17,15 @@ docker:
   services:
     - docker:dind
   before_script:
-    - ./scripts/setup/env.sh ci
+    - cp env/ci .env
     - apk add --update py-pip
     - pip install docker-compose
     - docker -v
     - docker-compose -v
+    - docker login -u $DOCKER_REPOSITORY_USERNAME -p $DOCKER_REPOSITORY_PASSWORD
   script:
     - docker-compose build
+    - docker-compose push
   tags:
     - docker
 
